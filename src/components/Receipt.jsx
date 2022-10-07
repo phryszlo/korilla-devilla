@@ -1,16 +1,29 @@
-// import React from 'react'
+import React from 'react'
+import ReceiptItem from "./ReceiptItem";
 
 function Receipt({ receipt, index }) {
-  console.log(`Receipt: ${index} ${JSON.stringify(receipt)}`);
+
+  React.useEffect(() => {
+    console.log(`Receipt: ${index} ${JSON.stringify(receipt)}`);
+  }, [])
+
 
   return (
-    <div>
+    <div key={`receipt-div-${index}`} className="receipt">
       {receipt && Object.entries(receipt).map(([k, v], i) => {
-        <div className="item">
-
-        </div>
+        console.log('receipt:', k, ':', v);
+        return (
+          // <ReceiptItem k={k} value={v} index={i} />
+          <div key={`receipt-sub-div-${i}`}>
+            {
+              v ?
+                <ReceiptItem key={`receipt-item-${i}`} k={k} value={v} index={i} />
+                : ''
+            }
+          </div>
+        )
       })}
-      </div>
+    </div>
   )
 }
 

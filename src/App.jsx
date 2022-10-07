@@ -1,4 +1,5 @@
 import './App.css';
+import './style.css';
 import { useState, useEffect } from 'react'
 import Receipts from './components/Receipts';
 import allReceipts from './models/receipt';
@@ -14,19 +15,21 @@ var object = arr.reduce(
   */
   const [receipts, setReceipts] = useState({
     receipt1: allReceipts[0],
-    receipt2: allReceipts[1]
+    receipt2: allReceipts[1],
+    receipt3: allReceipts[2]
   })
 
-  useEffect(() => {
-    setReceipts(allReceipts.reduce((obj, item) =>
-      Object.assign(obj, { [item.key]: item.value }), {}))
-  }, []);
-  console.log(`object: ${(JSON.stringify(receipts))}`)
+  // useEffect(() => {
+  //   setReceipts(allReceipts.reduce((obj, item) =>
+  //     Object.assign(obj, { [item.key]: item.value }), {}));
+
+  //   console.log(`setReceipts: ${JSON.stringify(receipts)}`)
+  // }, []);
 
   return (
     <div className="App">
       <h1 className="title"></h1>
-      <Receipts receipts={receipts} />
+      <Receipts key={`receipts`} receipts={receipts} />
     </div>
   );
 }
