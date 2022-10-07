@@ -12,10 +12,9 @@ function Receipts({receipts, index}) {
 
   // 🔹🔹🔹🔹🔹🔹🔹🔹
   return (
-    <div key={`receipts-div-6`} className="receipts">
-      <h1>why</h1>
+    <div key={`receipts-div-${index}`} className="receipts">
+      <h1 className="component-title" key={`receipts-head-${index}`}>Korilla Devilla Korean BBQ</h1>
       {receipts && Object.values(receipts).map((v, i) => {
-        // console.log(`map this receipt: ${JSON.stringify(v)}`)
         return (
           <Receipt key={`receipt-${i}`} receipt={v} index={i} />
         )

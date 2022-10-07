@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
+import OrderItem from './OrderItem'
 
 function ReceiptItem({ k, value, index }) {
   React.useEffect(() => {
@@ -13,7 +14,7 @@ function ReceiptItem({ k, value, index }) {
       case 'person':
         return (
           <React.Fragment key={`frag-${k}-${index}`}>
-            {value}
+           <p className="receipt-frag"> {value}</p>
           </React.Fragment>
         )
         break;
@@ -21,7 +22,7 @@ function ReceiptItem({ k, value, index }) {
         console.log(`paid: ${value}`);
         return (
           <React.Fragment key={`frag-${k}-${index}`}>
-             paid
+            <p className="receipt-frag">paid</p>
             {/* {value === true ? 'paid' : 'unpaid'} */}
           </React.Fragment>
         )
@@ -29,26 +30,31 @@ function ReceiptItem({ k, value, index }) {
       case 'order':
         return (
           <React.Fragment key={`frag-${k}-${index}`}>
-            render order here
+            {Object.entries(value).map(([k, v], i) => {
+              return (
+                <OrderItem k={k} item={v} index={index} />
+              )
+            })}
           </React.Fragment>
+            
         )
         break;
       default:
         return (
           <React.Fragment key={`frag-${k}-${index}`}>
-            unpaid
+            <p className="receipt-frag">unpaid</p>
           </React.Fragment>
         )
         break;
     }
 
-      // (value instanceof String) || (value instanceof Boolean) ?
-      //   <div key={`item-value-div-${index}`}>
-      //     <span className="item-key">{k}</span>
+    // (value instanceof String) || (value instanceof Boolean) ?
+    //   <div key={`item-value-div-${index}`}>
+    //     <span className="item-key">{k}</span>
 
-      //     <span className="item-value">{value}</span>
-      //   </div>
-      //   : <div>it's an order</div>
+    //     <span className="item-value">{value}</span>
+    //   </div>
+    //   : <div>it's an order</div>
   }
 
   // 🤢🤢

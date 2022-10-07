@@ -1,10 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Bungee+Shade&family=Butcherman&family=Faster+One&family=Montserrat:wght@300;400&family=Noto+Sans+Mono:wght@300&display=swap');
+
+html {
+  background-color: black;
+}
+
 body {
   margin: 0;
   min-height: 100vw;
   background-color: #222;
+  background-color: #3b97;
   color: yellow;
-  text-shadow: 1px .9px lime;
-  font-family: monospace;
+  /* text-shadow: 1px .9px lime; */
+  /* font-family: 'Blaka Ink', cursive; */
+  /* font-family: 'Bungee Shade', cursive; */
+  /* font-family: 'Butcherman', cursive; */
+  /* font-family: 'Faster One', cursive; */
+  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Noto Sans Mono', monospace; */
+  /* font-family: monospace; */
+}
+
+h1.component-title {
+  color: rgb(227, 237, 96);
+  font-family: 'Bungee Shade', cursive;
+  letter-spacing: .1pc;
+  font-size: 22px;
 }
 
 .button {
@@ -38,8 +58,9 @@ h1.title {
   flex-direction: column;
   width: fit-content;
   margin: auto;
-  border: .5px solid deeppink;
+  /* border: .5px solid deeppink; */
 }
+
 .receipt {
   display: flex;
   flex-direction: column;
@@ -48,25 +69,48 @@ h1.title {
   height: fit-content;
   min-height: 40vw;
   margin: auto;
-  border: .5px solid orange;
+  /* border: .5px solid orange; */
 
 }
+
 .receipt-item {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   color: white;
-  width: fit-content;
-  min-width: 200px;
-  min-height: 5px;
-  border: .5px solid azure;
+  width: 100%;
+  height: fit-content;
+  border: .6px solid azure;
 
 }
-.item-key {
-  color: orangered;
-  font-weight: bold;
-  border: .5px solid limegreen;
-  min-width: 50px;
+
+.receipt-item-outer {
+  width: 100%;
+  align-self: center;
 }
+
+.receipt-frag {
+  background-color: transparent;
+  color: orangered;
+  font-family: 'Noto Sans Mono', monospace;
+  font-weight: bold;
+  font-size: 16px;
+  margin: .3em;
+}
+
+.item-key {
+  color: rgb(255, 234, 0);
+  border-bottom: .2px solid limegreen;
+  border-right: .2px solid #9ff;
+  width: 5em;
+}
+
 .item-value {
-  border: .5px solid yellow;
-  min-width: 50px;
+  border-bottom: .2px solid yellow;
+  width: 15em;
+}
+
+.order-item {
+  display: flex;
 }

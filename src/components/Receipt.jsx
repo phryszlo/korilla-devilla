@@ -13,8 +13,7 @@ function Receipt({ receipt, index }) {
       {receipt && Object.entries(receipt).map(([k, v], i) => {
         console.log('receipt:', k, ':', v);
         return (
-          // <ReceiptItem k={k} value={v} index={i} />
-          <div key={`receipt-sub-div-${i}`}>
+          <div className="receipt-item-outer" key={`receipt-sub-div-${i}`}>
             {
               v ?
                 <ReceiptItem key={`receipt-item-${i}`} k={k} value={v} index={i} />
